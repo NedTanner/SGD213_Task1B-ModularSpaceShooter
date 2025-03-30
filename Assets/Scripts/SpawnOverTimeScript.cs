@@ -14,17 +14,11 @@ public class SpawnOverTimeScript : MonoBehaviour
 
     private Renderer ourRenderer;
 
-    // Use this for initialization
     void Start()
     {
-
         ourRenderer = GetComponent<Renderer>();
 
-        // Stop our Spawner from being visible!
-        ourRenderer.enabled = false;
-
-        // Call the given function after spawnDelay seconds, 
-        // and then repeatedly call it after spawnDelay seconds.
+        // Call the 'Spawn' function after spawnDelay seconds
         InvokeRepeating("Spawn", spawnDelay, spawnDelay);
     }
 
