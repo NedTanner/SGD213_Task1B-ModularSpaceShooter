@@ -24,7 +24,8 @@ public class ShootingScript : MonoBehaviour
     public void Shoot()
     {
         float CurrentTime = Time.time;
-        // Have a delay so we don't shoot too many bullets
+
+        // Check if fireDelay is finished
         if (CurrentTime - lastFiredTime > fireDelay)
         {
             Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);

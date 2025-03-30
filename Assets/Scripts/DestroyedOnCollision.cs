@@ -37,6 +37,8 @@ public class DestroyedOnCollision : MonoBehaviour
             // Use default collision code
         }
     }
+
+    // Checks if object is enemy, destroy when object leaves screen if true
     void OnBecameInvisible()
     {
         if (gameObject.tag == "Enemy")
