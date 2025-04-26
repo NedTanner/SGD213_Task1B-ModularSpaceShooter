@@ -15,7 +15,6 @@ public class MoveConstantly : MonoBehaviour
     private float initialVelocity = 10f;
 
     [SerializeField]
-    // our direction to move in
     private Vector2 direction = new Vector2(0, 1);
 
     /// <summary>
@@ -48,9 +47,8 @@ public class MoveConstantly : MonoBehaviour
 
     void Update()
     {
-        // calculate our force to add, based on our provided direction, acceleration and delta time
+        // Calculate our force to add based on our provided direction, acceleration and delta time
         Vector2 forceToAdd = direction * acceleration * Time.deltaTime;
-        // add our forceToAdd to ourRigidbody
         ourRigidbody.AddForce(forceToAdd);
     }
 }

@@ -15,18 +15,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        // populate ourRigidbody
         ourRigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void MovePlayer(Vector2 direction)
     {
-        // a horizontalInput of 0 has no effect, as we want our ship to drift
+        // A horizontalInput of 0 has no effect
         if (direction.magnitude != 0)
         {
-            //calculate our force to add
+            //Calculate our force to add
             Vector2 forceToAdd = direction * horizontalPlayerAcceleration * Time.deltaTime;
-            // apply forceToAdd to ourRigidbody
             ourRigidbody.AddForce(forceToAdd);
         }
     }

@@ -8,11 +8,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerInput : MonoBehaviour
 {
-
-    // local references
     private PlayerMovement playerMovement;
 
     private WeaponBase weapon;
+
     public WeaponBase Weapon
     {
         get
@@ -34,26 +33,24 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        // read our horizontal input axis
+        // Read our horizontal input axis
         float horizontalInput = Input.GetAxis("Horizontal");
-        // if movement input is not zero
+        // If movement input is not zero
         if (horizontalInput != 0.0f)
         {
-            // ensure our playerMovementScript is populated to avoid errors
+            // Ensure our playerMovementScript is populated to avoid errors
             if (playerMovement != null)
             {
-                // pass our movement input to our playerMovementScript
+                // Pass our movement input to our playerMovementScript
                 playerMovement.MovePlayer(horizontalInput * Vector2.right);
             }
         }
 
-        // if we press the Fire1 button
         if (Input.GetButton("Fire1"))
         {
-            // if our shootingScript is populated
+            // Check if our shootingScript is populated
             if (weapon != null)
             {
-                // tell shootingScript to shoot
                 weapon.Shoot();
             }
         }
@@ -78,11 +75,11 @@ public class PlayerInput : MonoBehaviour
                 break;
         }
 
-        // update the data of our newWeapon with that of our current weapon
+        // Update the data of our newWeapon with that of our current weapon
         newWeapon.UpdateWeaponControls(weapon);
-        // remove the old weapon
+        // Remove the old weapon
         Destroy(weapon);
-        // set our current weapon to be the newWeapon
+        // Set our current weapon to be the newWeapon
         weapon = newWeapon;
     }
 }
