@@ -38,7 +38,7 @@ public class DestroyedOnCollision : MonoBehaviour
         }
     }
 
-    // Checks if object is enemy, destroy when object leaves screen if true
+    // Checks if object is enemy or bullet, destroy when object leaves screen if true
     void OnBecameInvisible()
     {
         if (gameObject.tag == "Enemy" || gameObject.tag == "Bullet")
